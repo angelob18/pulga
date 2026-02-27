@@ -32,17 +32,21 @@ body{
 }
 
 /* ========================= */
-/* FONDO ANIMADO OPTIMIZADO  */
+/* FONDO LOOP INFINITO REAL  */
 /* ========================= */
 
 body::before{
     content:"";
     position:absolute;
-    inset:0;
+    top:0;
+    left:0;
+    width:200%; /* doble ancho */
+    height:100%;
     background:
         linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-        url("collage.png") repeat-x center center / auto 100%;
-    animation: moverFondo 40s linear infinite;
+        url("collage.png") repeat-x center / auto 100%;
+    
+    animation: moverFondo 20s linear infinite; /* MÁS RÁPIDO */
     will-change: transform;
     z-index:-1;
 }
@@ -74,14 +78,10 @@ body::before{
     color:#ffffff;
 }
 
-/* Título */
-
 h1{
     font-size:clamp(20px,5vw,28px);
     margin-bottom:15px;
 }
-
-/* Texto */
 
 p{
     margin:12px 0;
@@ -93,8 +93,6 @@ p{
     font-weight:bold;
     color:#ff6fa5;
 }
-
-/* Corazón */
 
 .heart{
     font-size:clamp(28px,7vw,42px);
@@ -108,8 +106,6 @@ p{
     50%{transform:scale(1.2);}
     100%{transform:scale(1);}
 }
-
-/* Botón */
 
 button{
     margin-top:20px;
@@ -134,8 +130,6 @@ button:hover{
     background:#ff6fa5;
 }
 
-/* Animación entrada */
-
 @keyframes fadeIn{
     from{
         opacity:0;
@@ -147,8 +141,6 @@ button:hover{
     }
 }
 
-/* Mensaje oculto */
-
 #respuesta{
     display:none;
     margin-top:20px;
@@ -156,8 +148,6 @@ button:hover{
     color:#ff9dc4;
     font-size:clamp(16px,4vw,18px);
 }
-
-/* Checkbox hack */
 
 #toggle{
     display:none;
@@ -171,16 +161,12 @@ button:hover{
     display:none;
 }
 
-/* Ajuste iPhone pequeño */
-
 @media (max-width:390px){
     body{
         align-items:flex-end;
         padding-bottom:40px;
     }
 }
-
-/* Ajuste Mac grande */
 
 @media (min-width:1200px){
     .card{
